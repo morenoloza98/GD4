@@ -6,4 +6,8 @@ router.get('/', homepageController.index);
 
 router.post('/tasks', tasksController.store);
 
+router.post('/tasks/:id/done', tasksController.changeStat);
+
+router.post('/tasks/:id/delete', tasksController.delete);
+
 module.exports = router;

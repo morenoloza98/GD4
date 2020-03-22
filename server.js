@@ -1,6 +1,7 @@
 // Imports
 const express = require('express');
 const webRoutes = require('./routes/web');
+const methodOverride = require('method-override');
 
 // Express app creation
 const app = express();
@@ -21,7 +22,8 @@ app.engine(extNameHbs, hbs.engine);
 app.set('view engine', extNameHbs);
 
 // Receive parameters from the Form requests
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 app.use('/', webRoutes);
